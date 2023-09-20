@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ECMA 1일차</title>
+</head>
+<body>
+	
+</body>
+<script>
+	class box{
+		//this => class명을 지칭, 메소드를 지칭
+		aaa(data){
+			//메소드에 일반 변수형을 사용하면 다른 외부 메소드에서 사용못함
+			//this를 이용한 가상변수형을 만들면 모든 메소드에서 사용가능함
+			//console.log(data);
+			this.a = data;
+			this.b = "이순신";
+			this.bbb();
+			this.ccc();
+		}
+		bbb(){
+			this.ddd = "변수명";
+			console.log(this.a);
+			console.log(this.b);
+			let datas = "bbb의 값";
+		}
+		ccc(){
+			console.log(this.a);
+			console.log(this.b);
+		}
+	}
+	let k = new box();
+	k.aaa("홍길동");
+	
+	//변수형태의 class 이름이 있음
+	const aaa = class box{
+		aaa_box(data){
+			console.log(data);
+		}
+	}
+	console.log(aaa.name);	//해당 변수에 class이름을 가져옴
+	new aaa().aaa_box("변수형 메소드 호출");	//new 새로운 인스턴스
+	
+	//변수형태 class 이름이 없음
+	const bbb = class {
+		bbb_box(data){
+			this.a = "ES";
+			return this.ccc_box();
+		}
+		ccc_box(){
+			this.b = this.a + "VS JS";
+			return this.b;
+		}
+	}
+	new bbb().bbb_box("이름없는 클래스");
+	var result = new bbb().bbb_box("a");
+	console.log(result);
+	
+</script>
+</html>

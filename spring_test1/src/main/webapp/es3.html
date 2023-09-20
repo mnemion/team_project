@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ECMA 1일차 - class 상속</title>
+</head>
+<body>
+	
+</body>
+<script>
+	class box1{
+		abc(){
+			this.msg = "홍길동님 환영합니다.";
+			return this.msg;
+		}
+	}
+	//상속 클래스를 사용하여 출력하게 된다. 단, java와 다르게 상속하고자 하는 클래스를 먼저 선언 후 상속을 받아야 정상적으로 인식하여 출력할 수 있음.
+	class box2 extends box1{
+		bbb(){
+			this.data = this.abc();
+			console.log(this.data);
+		}
+	}
+	
+	let aa = new box2();
+	aa.bbb();
+	
+	
+	/*
+	응용문제
+	class cals가 있다.
+	해당 클래스에 plus_method라는 이름을 가진 메소드가 있으며,
+	해당 메소드에 두 개의 인자값을 적용한다.
+	사용자가 숫자 1, 5를 적용 시
+	1~5까지 모두 더한 최종값을 가상변수를 생성하여,
+	해당 출력 내용은 상속받은 클래스에서 출력되도록 하시오.
+	*/
+	
+	class cals {
+	    plus_method(start, end) {
+	        let sum = 0;
+	        for (let i = start; i <= end; i++) {
+	            sum += i;
+	        }
+	        this.total = sum;
+	    }
+	}
+	
+	class bbox1 extends cals {
+	    print_total() {
+	        console.log(this.total);
+	    }
+	}
+	
+	let box = new bbox1();
+	box.plus_method(1, 5);
+	box.print_total();
+
+	
+	//힌트 bbox1().plus_method(1,5)
+	
+	
+	class bbox{
+		constructor(z){	//constructor : 즉시 실행 메소드
+			console.log(z);
+		}
+	}
+	var kk = new bbox("ECMA");
+	
+</script>
+</html>

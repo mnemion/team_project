@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ECMA - submit + es7~</title>
+</head>
+<body>
+	<form id="f" method="post" action="http://naver.com">
+	<input type="text" name="mid">
+	<br>
+	<input type="submit" value="로그인">
+	</form>
+	<br><br><br><br>
+	<input type="button" value="클릭" id="btn">
+	<input type="button" value="클릭" id="btn2">
+</body>
+<script>
+	//ECMA return false 작동이 불가능합니다.
+	document.querySelector("#f").addEventListener("submit", function(z){
+		z.preventDefault();		//submit 전용으로 return false
+		if(f.mid.value == ""){
+			alert("아이디를 입력하세요.");
+		}
+		else{
+			f.submit();
+		}
+	});
+</script>
+
+<!-- type="module" : ES7~ -->
+<script type="module">
+	//import는 JS파일을 로드하여 해당 function만 가져올 수 있음!
+	import {abc, bbb} from "./ecma.js";
+	
+	document.querySelector("#btn").addEventListener("click", function(){
+		abc();	//import에서 가져온 이름에 대한 function을 입력
+	});
+	
+	document.querySelector("#btn2").addEventListener("click", function(){
+		bbb();
+	});
+	
+</script>
+</html>

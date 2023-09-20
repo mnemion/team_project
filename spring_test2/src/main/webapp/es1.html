@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ECMA Class(선언식)</title>
+</head>
+<body>
+	<input type="button" value="aaa함수" onclick="z.aaa()"><br>
+	<input type="button" value="bbb함수" onclick="z.bbb()"><br>
+</body>
+<script>
+	class abc{
+		aaa(){
+			console.log("aaa 메소드");
+		}
+		bbb(){
+			console.log("bbb 메소드");
+		}
+	}
+	let z = new abc();
+	z.aaa();
+	z.bbb();
+</script>
+</html>
